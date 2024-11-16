@@ -1,11 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from 'react';
+
+const Products = lazy(() => import('App1/Products'));
+
 
 export default function App() {
     return (
         <div className="main">
-            <p>
-                This is a React App created without conventional <code>npx create-react-app</code>.
-            </p>
+            <Suspense fallback={<div>Loading Header...</div>}>
+                <Products />
+            </Suspense>
         </div>
     )
 }

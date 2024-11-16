@@ -1,5 +1,8 @@
 const path = require('path');
 
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { dependencies } = require("./package.json");
+
 module.exports = {
     /**
      * mode:
@@ -12,7 +15,17 @@ module.exports = {
      * The entry point or points where to start the application bundling process.
      * If an array is passed then all items will be processed.
      */
-    entry: "./index.js",
+    entry: "./entry.js",
+
+    plugins: [
+        //...
+        new ModuleFederationPlugin({
+            name: "HostApp",
+            remotes: { 
+                "App1": "App1@http://localhost:3001/remoteEntry.js",            
+            },
+        }),
+    ],
     /**
      * The top-level 'output' key contains a set of options instructing webpack on how and
      * where it should output your bundles, assets, and anything else you bundle or load with webpack.
