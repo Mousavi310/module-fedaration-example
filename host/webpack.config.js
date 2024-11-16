@@ -12,7 +12,7 @@ module.exports = {
      * The entry point or points where to start the application bundling process.
      * If an array is passed then all items will be processed.
      */
-    entry: "index.js",
+    entry: "./index.js",
     /**
      * The top-level 'output' key contains a set of options instructing webpack on how and
      * where it should output your bundles, assets, and anything else you bundle or load with webpack.
@@ -67,6 +67,7 @@ module.exports = {
          */
         open: true,
         /** Enable webpack's 'Hot Module Replacement' feature. */
-        hot: true
+        hot: true,
+        port: 3000
     }
 }
