@@ -15,7 +15,7 @@ module.exports = {
      * The entry point or points where to start the application bundling process.
      * If an array is passed then all items will be processed.
      */
-    entry: "./entry.js",
+    entry: "./index.js",
 
     plugins: [
         //...
